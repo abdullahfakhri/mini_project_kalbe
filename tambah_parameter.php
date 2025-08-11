@@ -21,22 +21,45 @@ if (isset($_POST['add'])) {
 
 ?>
 
-<div class="container mt-5">
-    <h1 class="mb-5">Add Master Parameter</h1>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"><ia class ="fas fa-plus"></ia> Add parameter</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item active">Edit Parameter</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-    <form action="" method="post">
-        <div class="mb-3">
-            <label for="code" class="form-label">Code</label>
-            <input type="text" class="form-control" id="code" name="code" placeholder="Input Code..." required>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <form action="" method="post">
+                <div class="mb-3">
+                    <label for="code" class="form-label">Code</label>
+                    <input type="text" class="form-control" id="code" name="code" placeholder="Input Code..." required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" name="description"
+                        placeholder="Input Description..." required>
+                </div>
+
+                <button type="submit" name="add" class="btn btn-success" style="float: right;">Add</button>
+            </form>
         </div>
-
-        <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <input type="text" class="form-control" id="description" name="description" placeholder="Input Description..." required>
-        </div>
-
-        <button type="submit" name="add" class="btn btn-success" style="float: right;">Add</button>
-    </form>
+    </section>
+    <!-- /.content -->
 </div>
 
 <?php include 'layout/footer.php'; ?>

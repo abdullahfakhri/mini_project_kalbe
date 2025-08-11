@@ -26,25 +26,50 @@ if (isset($_POST['edit'])) {
 
 ?>
 
-<div class="container mt-5">
-    <h1 class="mb-5">Edit Master Parameter</h1>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"><ia class="fas fa-edit"></ia></ia> Edit parameter</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="index.php">Data Parameter</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-    <form action="" method="post">
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <form action="" method="post">
 
-        <input type="hidden" name="id" value="<?= $m_ca_parameters['id'];?>">
-        
-        <div class="mb-3">
-            <label for="code" class="form-label">Code</label>
-            <input type="text" class="form-control" id="code" name="code" value="<?= $m_ca_parameters['code']; ?>" placeholder="Input Code..." required>
+                <input type="hidden" name="id" value="<?= $m_ca_parameters['id']; ?>">
+
+                <div class="mb-3">
+                    <label for="code" class="form-label">Code</label>
+                    <input type="text" class="form-control" id="code" name="code"
+                        value="<?= $m_ca_parameters['code']; ?>" placeholder="Input Code..." required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" name="description"
+                        value="<?= $m_ca_parameters['description']; ?>" placeholder="Input Description..." required>
+                </div>
+
+                <button type="submit" name="edit" class="btn btn-success" style="float: right;">Edit</button>
+            </form>
         </div>
-
-        <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <input type="text" class="form-control" id="description" name="description" value="<?= $m_ca_parameters['description']; ?>" placeholder="Input Description..." required>
-        </div>
-
-        <button type="submit" name="edit" class="btn btn-success" style="float: right;">Edit</button>
-    </form>
+    </section>
+    <!-- /.content -->
 </div>
 
-<?php include 'layout/footer.php'; ?>
+<?php include 'layout/footer.php' ?>

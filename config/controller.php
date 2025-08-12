@@ -105,7 +105,7 @@ function edit_m_ca_sample_types($post)
 
   //query create/add data sample type
   // $query = "UPDATE m_ca_sample_types SET code = '$code', description = '$description', created_by = '$createdby' WHERE id = $id";
-  $query = "UPDATE m_ca_sample_types SET code = '$code', description = '$description', createdby = '$createdby' WHERE id = $id";
+  $query = "UPDATE m_ca_sample_types SET code = '$code', description = '$description' WHERE id = $id";
 
   mysqli_query($db, $query);
 

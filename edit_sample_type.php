@@ -1,59 +1,75 @@
 <?php
 
-$title = 'Edit sample type';
+$title = 'Edit Sample Type';
 
 include 'layout/header.php';
+
+//mengambil id dari URL
+$id = (int)$_GET['id'];
+
+$m_ca_sample_types = select("SELECT * FROM m_ca_sample_types WHERE ID = $id")[0];
 
 //cek apakah tombol edit ditekan
 if (isset($_POST['edit'])) {
     if (edit_m_ca_sample_types($_POST) > 0) {
         echo "<script>
-                alert('Data Sample Type Berhasil Diedit');
+                alert('Data Parameters Berhasil Diedit');
                 document.location.href = 'master_sample_type.php';      
         </script>";
     } else {
         echo "<script>
-                alert('Data Sample Type Gagal Diedit');
+                alert('Data Parameters Gagal Diedit');
                 document.location.href = 'master_sample_type.php';      
         </script>";
     }
 }
 
-//ambil id sample type dari url
-$id = (int)$_GET['id'];
-
-//query ambil data sample type
-$m_ca_sample_types = select("SELECT * FROM m_ca_sample_types WHERE id = $id")[0];
-
-
-
 ?>
 
-<div class="container mt-5">
-    <h1 class="mb-5">Edit Master Sample Type</h1>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"><ia class="fas fa-edit"></ia></ia> Edit parameter</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="index.php">Data Parameter</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-    <form action="" method="post">
-        <input type="hidden" name="id" value="<?= $m_ca_sample_types['id']; ?>">
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <form action="" method="post">
 
-        <div class="mb-3">
-            <label for="code" class="form-label">Code</label>
-            <input type="text" class="form-control" id="code" name="code" placeholder="Input Code..." required value="<?= $m_ca_sample_types['code'] ?>">
+                <input type="hidden" name="id" value="<?= $m_ca_sample_types['id']; ?>">
+
+                <div class="mb-3">
+                    <label for="code" class="form-label">Code</label>
+                    <input type="text" class="form-control" id="code" name="code"
+                        value="<?= $m_ca_sample_types['code']; ?>" placeholder="Input Code..." required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" name="description"
+                        value="<?= $m_ca_sample_types['description']; ?>" placeholder="Input Description..." required>
+                </div>
+
+                <button type="submit" name="edit" class="btn btn-success" style="float: right;">Edit</button>
+            </form>
         </div>
-
-        <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <input type="text" class="form-control" id="description" name="description"
-                placeholder="Input Description..." required value="<?= $m_ca_sample_types['description'] ?>">
-        </div>
-
-        <div class="mb-3">
-            <label for="createdby" class="form-label">Created By</label>
-            <input type="text" class="form-control" id="createdby" name="createdby"
-                placeholder="Input Created By..." required value="<?= $m_ca_sample_types['created_by'] ?>">
-        </div>
-
-        <button type="submit" name="add" class="btn btn-success" style="float: right;">Add</button>
-    </form>
+    </section>
+    <!-- /.content -->
 </div>
 
-<?php include 'layout/footer.php'; ?>
+<?php include 'layout/footer.php' ?>

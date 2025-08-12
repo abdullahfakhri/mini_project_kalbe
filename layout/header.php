@@ -187,7 +187,7 @@ include 'config/app.php';
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="master_symple_type" class="nav-link">
+                            <a href="master_sample_type.php" class="nav-link">
                                 <i class="nav-icon fas fa-list"></i>
                                 <p>
                                     Master Sample Type
